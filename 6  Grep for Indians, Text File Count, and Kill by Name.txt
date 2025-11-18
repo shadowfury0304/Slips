@@ -1,0 +1,25 @@
+6: Grep for Indians, Text File Count, and Kill by Name
+
+Q2)
+
+b) Create file prn.txt, copy to student\_prn.txt (on Desktop). Add text. Print the line which contains word Indians:-
+	
+1. touch ~/Desktop/prn.txt
+
+
+2. cp ~/Desktop/prn.txt ~/Desktop/student_prn.txt
+
+
+3. echo "India is my country. All Indians are my brothers and sisters." >> ~/Desktop/student_prn.txt
+
+
+4. grep "Indians" ~/Desktop/student_prn.txt
+
+
+Q2)
+
+1. Print total number of .txt files on desktop using grep command:- `ls ~/Desktop/
+
+2. Write shell script which will accept process name from user and kill all processes with that name:-
+
+bash\n#!/bin/bash\n\nread -p "Enter Process Name to kill: " PNAME\n\n# pkill kills processes by name\npkill "$PNAME"\n\nif [ $? -eq 0 ]; then\n echo "All processes named $PNAME have been terminated."\nelse\n echo "No processes found with name $PNAME or an error occurred."\nfi\n

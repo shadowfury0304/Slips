@@ -1,0 +1,24 @@
+3: PWD, Echo, Disk Usage, and Process Tree
+
+Q1)
+
+1. I want to echo the text "India is my country." into the file studentName\_PRN.txt which is on the desktop:-	
+
+echo "India is my country." > ~/Desktop/studentName_PRN.txt
+
+
+2. I want to create a file with student\_name.txt using vi and add some text into that file. Now I want to check disk usage by this file in human readable format:-
+	
+1. vi student_name.txt (Enter text and save)
+
+2. du -h student_name.txt
+
+
+Q2)
+
+1.I want to see running processes in tree like structure:-	pstree
+
+
+2. Write a shell script to create a file named prn\_studentname.txt on desktop and then add some text to it and then show the count of number of bytes in this file on terminal:-
+	
+bash\n#!/bin/bash\n\nFILE=~/Desktop/prn_studentname.txt\n\n# Create file and add text\necho "This is a test file for byte counting." > "$FILE"\n\n# Show count of bytes (-c)\nwc -c "$FILE"\n

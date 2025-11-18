@@ -1,0 +1,23 @@
+2: Check Date, Row Count, Logged Users, and BSD Processes
+
+Q1.a) I want to check the current date:- date
+a) 2.Create a text file on the desktop and add some text to that file.Now show the row count from that text file:-
+
+1. echo -e "Line 1\nLine 2\nLine 3" > ~/Desktop/temp_file.txt  
+
+2. wc -l ~/Desktop/temp_file.txt
+
+
+b)I want to display information about users currently logged into the system and print that information into the file student\_prn.txt:-
+
+w > student_prn.txt
+
+
+Q2
+
+1. I want to see detailed information about all processes in BSD Style:-    ps aux
+
+2.Create a studentName\_PRN.txt file on Desktop. Now I want to print information of files and directories present on Desktop on terminal and at the same time write that information in studentName\_PRN.txt. Write a shell script for this:-
+
+`bash\n#!/bin/bash\n\n# List files on Desktop and use tee to output to terminal AND file\nls -l ~/Desktop/
+

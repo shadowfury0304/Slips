@@ -1,0 +1,40 @@
+7: Echo and Unlink, Directory Copy, and Case-Insensitive Search
+
+a) 1.	Create text file with your\_prn.txt. Add text with echo. Print the contents:-
+	
+1. echo "Text content here" > ~/Desktop/your_prn.txt
+
+2. cat ~/Desktop/your_prn.txt
+
+a) 2.	Unlink the created file above:-	rm ~/Desktop/your_prn.txt
+
+
+b) Create file in Infosys\_PRN (Desktop). Add text. Copy directory to Music. Remove original directory from desktop:-
+	
+1. mkdir -p ~/Desktop/Infosys_PRN
+
+2. echo "Data" > ~/Desktop/Infosys_PRN/studentFullName.txt
+
+3. cp -r ~/Desktop/Infosys_PRN ~/Music/
+
+4. rm -r ~/Desktop/Infosys_PRN	
+
+
+Q2)
+
+1. Create directory on Desktop. Add 2 text files with different casing for "India". Write command to find "India" irrespective of uppercase or lowercase:-
+	
+1. mkdir ~/Desktop/Your_PRN
+
+
+2. echo "India is my country." > ~/Desktop/Your_PRN/file1.txt
+
+
+3. echo "india is my country" > ~/Desktop/Your_PRN/file2.txt
+
+
+4. grep -r -i "India" ~/Desktop/Your_PRN/
+
+2. Write shell script to automate above question (case-insensitive search):-
+
+bash\n#!/bin/bash\n\nDIR=~/Desktop/Your_PRN\nWORD="India"\n\n# -r for recursive, -i for ignore case\ngrep -r -i "$WORD" "$DIR"\n\nif [ $? -eq 0 ]; then\n echo "Case-insensitive search complete."\nelse\n echo "No matches found."\nfi\n

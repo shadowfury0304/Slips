@@ -1,0 +1,27 @@
+5: Username, Directory Path, and File/Directory Removal
+
+Q1)
+
+Create file in NarayanMurthy\_PRN (Desktop). Copy it to RatanTata\_PRN (Documents). Remove the file from original directory on Desktop:-	
+1. mkdir -p ~/Desktop/NarayanMurthy_PRN
+
+
+2. echo "Data" > ~/Desktop/NarayanMurthy_PRN/des.txt_PRN
+
+
+3. mkdir -p ~/Documents/RatanTata_PRN
+
+
+4. cp ~/Desktop/NarayanMurthy_PRN/des.txt_PRN ~/Documents/RatanTata_PRN/
+
+
+5. rm ~/Desktop/NarayanMurthy_PRN/des.txt_PRN
+
+
+Q2)
+
+1. I want to print all processes running in the system:-	ps -ef or ps aux
+
+2. Write a shell script to accept process ID from the user and kill process with that ID:-
+
+bash\n#!/bin/bash\n\nread -p "Enter PID to kill: " PID\n\n# Kill process using default signal (SIGTERM)\nkill "$PID"\n\nif [ $? -eq 0 ]; then\n echo "Process $PID killed."\nelse\n echo "Failed to kill process $PID."\nfi\n

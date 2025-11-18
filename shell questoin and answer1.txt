@@ -1,0 +1,166 @@
+Q1]
+Write a shell script to take a file from the user as an argument and disk usage by that file in human readable format.
+=>
+# Check if a filename is provided as an argument
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 filename"
+    exit 1
+fi
+# Assign the first argument to a variable
+file="$1"
+# Check if the file exists
+if [ ! -e "$file" ]; then
+    echo "File '$file' does not exist."
+    exit 1
+fi
+# Display disk usage in human-readable format
+du -h "$file"
+
+
+Q2]
+I want to create a studentName_PRN.txt file on Desktop. Now I want to print information of files and directories present on Desktop on terminal and at the same time write that information in studentName_PRN.txt Write a shell script for this.
+=>
+FILE=~/Desktop/studentName_PRN.txt
+# Create the file if it doesn't exist
+touch "$FILE"
+# Print information of Desktop files/directories on terminal and write to file
+ls -l ~/Desktop | tee "$FILE"
+echo "Information saved to $FILE"
+
+
+Q3]
+Write a shell script to create a file named prn_studentname.txt on desktop and then add 
+some text to it and then show the count of number of bytes in this file on terminal. 
+=>
+FILE=/Desktop/studentname_prn.txt
+touch "$FILE"
+echo "india is my countary" > "$FILE"
+wc -c < "$FILE"(< "FILE"==reads the file content as input)
+
+
+Q4]
+ Write a shell script to create file "StudentFullName.txt" on desktop and dump data of all 
+processes in tree format into that file.
+=>
+FILE=/Desktop/studentname.txt
+touch "$FILE"
+pstree -p > "$FILE" (-p includes the process ids(PIDs))
+echo "all process in tree format saved in $FILE"
+
+
+Q5]
+. Write a shell script to create a file with prn.txt on the desktop and dump a real time view of 
+running processes into it.
+=>
+FILE=/Desktop/prn.txt
+touch "$FILE"
+top -b -n 1 > "$FILE"(-b → batch mode (required to redirect output to a file).
+(-n 1 → takes 1 snapshot and exits (instead of running continuously).)
+echo "real time process snapshot saved in $FILE"
+
+
+Q6]
+Write a shell script to accept process ID from the user and kil process with that ID.
+=>
+read -p "enter the pid to kill:" pid
+expr "$pid"+0 /dev/null 2>&1
+if[$? -ne 0];then
+echo "error:pid must be in number";
+exit 1
+fi
+kill -0 "$pid" 2>/dev/null
+if[$? -ne 0];then
+echo "pid did not exist";
+exit 1
+fi
+kill -9 "$pid"
+if[$? -eq 0];then
+echo "process killed"
+else
+echo "process not killed"
+fi
+
+
+Q7]
+Write shell script which will accept process nae from user and kill all processes with that 
+name. 
+=>
+read -p "enter the process name:" pname
+if[-z "$pname"];then
+echo "process name cant be empty"
+exit 1
+fi
+pids=$(grep "$pname")
+if[-z "$pname"];then
+echo "no process found with name:$pname"
+exit 1
+fi
+kill -9 $pids
+echo"all pids with name '&pname' have been killed" 
+
+
+Q8]
+Create a directory on the desktop with your PRN. Now add 2 text files into it. Add Text into files 
+as "India is my country." and "india is my country" respectively. 
+Now write command to find "India" words irrespective of uppercase or lowercase. 
+2. Write shell script to automate above question. 
+=>
+PRN_DIR=/Desktop/prn
+mkdir -p "$PRN_DIR"
+touch "$PRN_DIR/file1.txt" "$PRN_DIR/file2.txt"
+echo "hello india" > "$PRN_DIR/file1.txt"
+echo "hello INDIA" > "$PRN_DIR/file2.txt"
+ecjo "searching for india in all txt files"
+grep -i "india" "$PRN_DIR"/*.txt
+
+Q9]
+ Write shell script to accept the process id from user and forcefully kill the process with that 
+id. 
+=>
+read "enter the process id:" pid
+expr "$pid"+0 /dev/null 2>&1
+if[$? -ne 0];then
+echo "error:process id must be in number"
+exit 1
+fi
+
+kill -0 "$pid" 2>/dev/null
+if[$? -ne 0];then
+echo "process does not exist"
+exit 1
+fi
+
+kill -9 "$pid"
+
+if[$? -eq 0];then 
+echo "process killed"
+else
+ecjo "process not killed"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

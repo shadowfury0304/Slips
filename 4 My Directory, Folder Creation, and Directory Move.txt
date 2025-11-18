@@ -1,0 +1,29 @@
+4: My Directory, Folder Creation, and Directory Move
+
+
+a) 2. Create a folder with your name on the desktop and then create a text file into it and some text into this file. Now print the word count of that file on the terminal:-	
+
+1. mkdir ~/Desktop/MyName
+
+2. echo "Some text here" > ~/Desktop/MyName/file.txt
+
+3. wc -w ~/Desktop/MyName/file.txt
+
+
+b) Create directory in Downloads, create file with VI in it, add text. I want to move the directory to Desktop.	
+
+1. mkdir ~/Downloads/Shiv_Nadar_Your_PRN
+
+2. vi ~/Downloads/Shiv_Nadar_Your_PRN/des_PRN.txt (Enter text and save)
+
+
+3. mv ~/Downloads/Shiv_Nadar_Your_PRN ~/Desktop/
+
+
+Q2
+
+Write a shell script to create a file with prn.txt on the desktop and dump a real time view of running processes into it:-
+
+bash\n#!/bin/bash\n\n# Dumps the current process snapshot (-n 1) to the file\ntop -b -n 1 > ~/Desktop/prn.txt\n\necho "Process snapshot saved to ~/Desktop/prn.txt"\n
+
+

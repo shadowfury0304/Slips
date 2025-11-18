@@ -1,0 +1,23 @@
+8: Show Processes and Append Date
+
+Q1)
+
+a) 1.	Show all the processes in the format and at the same time write that data in the file named studentName.txt in directory StudentName\_PRN on desktop:-
+	
+1. mkdir -p ~/Desktop/StudentName_PRN
+
+2. ps aux > ~/Desktop/StudentName_PRN/studentName.txt
+
+b) Copy the directory created above (StudentName\_PRN on Desktop) to the default Documents directory:- 
+
+cp -r ~/Desktop/StudentName_PRN ~/Documents/
+
+
+Q2)
+
+1. Print process Ids of process name bash:-   pgrep bash
+
+2.Write shell script to accept the process id from user and forcefully kill the process with that id:-
+
+bash\n#!/bin/bash\n\nread -p "Enter PID to forcefully kill: " PID\n\n# Forcefully kill using signal 9 (SIGKILL)\nkill -9 "$PID"\n\nif [ $? -eq 0 ]; then\n  echo "Process $PID forcefully killed (SIGKILL)."}\nelse\n  echo "Failed to kill process $PID. Check permissions or if the PID exists."\nfi\n
+
