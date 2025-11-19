@@ -24,4 +24,18 @@ Q2)
 
 2. Write a shell script to accept process ID from the user and kill process with that ID:-
 
-bash\n#!/bin/bash\n\nread -p "Enter PID to kill: " PID\n\n# Kill process using default signal (SIGTERM)\nkill "$PID"\n\nif [ $? -eq 0 ]; then\n echo "Process $PID killed."\nelse\n echo "Failed to kill process $PID."\nfi\n
+read -p "Enter PID to forcefully kill: " PID
+
+if [ -z "$PID" ] || ! [[ "$PID" =~ ^[0-9]+$ ]]; then
+  echo "Invalid or empty PID provided."
+  exit 1
+fi
+
+# Forcefully kill using signal 9 (SIGKILL)
+kill -9 "$PID"
+
+if [ $? -eq 0 ]; then
+  echo "Process with PID $PID forcefully killed (SIGKILL)."
+else
+  echo "Failed to kill process $PID. Check permissions or if the PID exists."
+fi

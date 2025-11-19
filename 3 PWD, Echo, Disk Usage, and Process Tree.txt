@@ -21,4 +21,8 @@ Q2)
 
 2. Write a shell script to create a file named prn\_studentname.txt on desktop and then add some text to it and then show the count of number of bytes in this file on terminal:-
 	
-bash\n#!/bin/bash\n\nFILE=~/Desktop/prn_studentname.txt\n\n# Create file and add text\necho "This is a test file for byte counting." > "$FILE"\n\n# Show count of bytes (-c)\nwc -c "$FILE"\n
+FILE=~/Desktop/prn_studentname.txt
+
+echo "This is a test file for byte counting." > "$FILE"
+
+wc -c "$FILE"

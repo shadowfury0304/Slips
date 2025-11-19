@@ -37,4 +37,16 @@ Q2)
 
 2. Write shell script to automate above question (case-insensitive search):-
 
-bash\n#!/bin/bash\n\nDIR=~/Desktop/Your_PRN\nWORD="India"\n\n# -r for recursive, -i for ignore case\ngrep -r -i "$WORD" "$DIR"\n\nif [ $? -eq 0 ]; then\n echo "Case-insensitive search complete."\nelse\n echo "No matches found."\nfi\n
+DIR=~/Desktop/Your_PRN
+WORD="India"
+
+echo "Searching for '$WORD' (case-insensitive) in files in $DIR:"
+
+# -r for recursive, -i for ignore case
+grep -r -i "$WORD" "$DIR"
+
+if [ $? -eq 0 ]; then
+  echo "Case-insensitive search complete."
+else
+  echo "No matches found."
+fi

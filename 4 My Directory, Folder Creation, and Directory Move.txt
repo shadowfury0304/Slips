@@ -24,6 +24,8 @@ Q2
 
 Write a shell script to create a file with prn.txt on the desktop and dump a real time view of running processes into it:-
 
-bash\n#!/bin/bash\n\n# Dumps the current process snapshot (-n 1) to the file\ntop -b -n 1 > ~/Desktop/prn.txt\n\necho "Process snapshot saved to ~/Desktop/prn.txt"\n
+top -b -n 1 > ~/Desktop/prn.txt
+
+echo "Process snapshot saved to ~/Desktop/prn.txt"
 
 

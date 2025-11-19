@@ -22,4 +22,18 @@ Q2)
 
 2. Write shell script which will accept process name from user and kill all processes with that name:-
 
-bash\n#!/bin/bash\n\nread -p "Enter Process Name to kill: " PNAME\n\n# pkill kills processes by name\npkill "$PNAME"\n\nif [ $? -eq 0 ]; then\n echo "All processes named $PNAME have been terminated."\nelse\n echo "No processes found with name $PNAME or an error occurred."\nfi\n
+read -p "Enter Process Name to kill: " PNAME
+
+if [ -z "$PNAME" ]; then
+  echo "Process name cannot be empty."
+  exit 1
+fi
+
+# pkill kills processes by name
+pkill "$PNAME"
+
+if [ $? -eq 0 ]; then
+  echo "All processes named '$PNAME' have been sent a termination signal."
+else
+  echo "No processes found with the name '$PNAME' or an error occurred."
+fi

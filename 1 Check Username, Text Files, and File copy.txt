@@ -10,6 +10,12 @@ b) Create file StudentName\_PRN\_No.txt on Desktop using vi, add text "India is 
 3. cp ~/Desktop/StudentName_PRN_No.txt ~/Documents/PRN_NO_StudentName/
 
 2: a) I want to see currently running processes for the current shell/user.	ps or ps u
+
    b) Write a shell script to take a file from the user as an argument and disk usage by that file in human readable format:-
       
-bash\n#!/bin/bash\n\nif [ -f "$1" ]; then\n echo "Disk Usage for $1:";\n du -h "$1"\nelse\n echo "Error: File not found or invalid argument."\nfi\n
+if [ -f "$1" ]; then
+  echo "Disk Usage for $1:"
+  du -h "$1"
+else
+  echo "Error: File not found or invalid argument."
+fi
